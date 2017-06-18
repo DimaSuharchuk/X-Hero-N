@@ -20,8 +20,9 @@ function xhn_entities_ctools_plugin_directory($owner, $plugin_type) {
 function xhn_entities_eck_property_types() {
   return [
     'boolean' => t('Boolean'),
-    'long_text' => t('Long text'),
     'date' => t('Date'),
+    'integer' => t('Integer'),
+    'long_text' => t('Long text'),
   ];
 }
 
@@ -33,7 +34,24 @@ function xhn_entities_eck_property_type_schema_alter(&$schema, $type) {
     case 'boolean':
       $schema = [
         'description' => 'Boolean',
-        'type' => 'text',
+        'type' => 'int',
+        'size' => 'tiny',
+      ];
+      break;
+
+    case 'date':
+      $schema = [
+        'description' => 'Date',
+        'type' => 'varchar',
+        'length' => 10,
+      ];
+      break;
+
+    case 'integer':
+      $schema = [
+        'description' => 'Integer',
+        'type' => 'varchar',
+        'length' => 20,
       ];
       break;
 
@@ -41,13 +59,7 @@ function xhn_entities_eck_property_type_schema_alter(&$schema, $type) {
       $schema = [
         'description' => 'Long text',
         'type' => 'text',
-      ];
-      break;
-
-    case 'date':
-      $schema = [
-        'description' => 'Date',
-        'type' => 'text',
+        'size' => 'normal',
       ];
       break;
   }

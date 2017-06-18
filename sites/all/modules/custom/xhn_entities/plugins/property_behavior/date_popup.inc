@@ -1,7 +1,7 @@
 <?php
 
 $plugin = [
-  'label' => t('Date'),
+  'label' => t('Date popup'),
   'default_widget' => 'xhn_entities_date_property_entity_widget',
   'default_formatter' => 'xhn_entities_date_property_entity_formatter',
   'entity_save' => 'xhn_entities_date_property_entity_save',
@@ -25,7 +25,10 @@ function xhn_entities_date_property_entity_widget($property, $variables) {
     $widget = $function($widget, $bundle, $property);
   }
 
-  $widget['#default_value'] = _xhn_entities_date_property_extract($variables['entity'], $property);
+  $widget['#default_value'] = '';
+  if (!empty($variables['entity']->{$property})) {
+    $widget['#default_value'] = date('Y-m-d', $variables['entity']->{$property});
+  }
 
   return $widget;
 }

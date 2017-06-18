@@ -4,6 +4,7 @@ $plugin = [
   'label' => t('Date Select'),
   'default_widget' => 'xhn_entities_date_select_property_entity_widget',
   'default_formatter' => 'xhn_entities_date_select_property_entity_formatter',
+  'entity_save' => 'xhn_entities_date_select_property_entity_save',
 ];
 
 /**
@@ -23,7 +24,10 @@ function xhn_entities_date_select_property_entity_widget($property, $variables) 
     $widget = $function($widget, $bundle, $property);
   }
 
-  $widget['#default_value'] = isset($variables['entity']->{$property}) ? $variables['entity']->{$property} : '';
+  $widget['#default_value'] = '';
+  if (!empty($variables['entity']->{$property})) {
+    $widget['#default_value'] = date('Y-m-d', $variables['entity']->{$property});
+  }
 
   return $widget;
 }
@@ -47,6 +51,16 @@ function xhn_entities_date_select_property_entity_formatter($property, $variable
 }
 
 /**
+ * Save date as timestamp.
+ */
+function xhn_entities_date_select_property_entity_save($property, $vars) {
+  $date = &$vars['entity']->{$property};
+  if (is_string($date)) {
+    $date = strtotime($date);
+  }
+}
+
+/**
  * Helper function that gets the property from an entity.
  *
  * @param object $entity
@@ -58,5 +72,5 @@ function xhn_entities_date_select_property_entity_formatter($property, $variable
  *   The value of the property.
  */
 function _xhn_entities_date_select_property_extract($entity, $property) {
-  return !empty($entity->{$property}) ? format_date(strtotime($entity->{$property}), 'custom', 'd-m-Y') : '';
+  return !empty($entity->{$property}) ? format_date($entity->{$property}, 'custom', 'd-m-Y') : '';
 }

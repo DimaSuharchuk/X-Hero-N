@@ -25,7 +25,10 @@ function xhn_entities_exact_date_property_entity_widget($property, $variables) {
     $widget = $function($widget, $bundle, $property);
   }
 
-  $widget['#default_value'] = _xhn_entities_exact_date_property_extract($variables['entity'], $property);
+  $widget['#default_value'] = '';
+  if (!empty($variables['entity']->{$property})) {
+    $widget['#default_value'] = date('Y-m-d H:i', $variables['entity']->{$property});
+  }
 
   return $widget;
 }
