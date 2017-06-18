@@ -1,0 +1,18 @@
+name = X-Hero N core
+description = Feature for install, configure site and enabling modules automatically.
+core = 7.x
+package = X-Hero N
+
+; Contrib modules.
+dependencies[] = admin_menu
+dependencies[] = adminimal_admin_menu
+dependencies[] = date
+dependencies[] = date_popup
+dependencies[] = eck
+dependencies[] = features
+dependencies[] = module_filter
+dependencies[] = views
+dependencies[] = views_ui
+
+; Custom modules.
+dependencies[] = xhn_entities

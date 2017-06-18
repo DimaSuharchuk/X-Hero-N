@@ -1,0 +1,18 @@
+<?php
+/**
+ * @file
+ *
+ * Site configurations.
+ */
+
+function xhn_core_enable() {
+  // Disable unnecessary drupal core modules.
+  $modules = [
+    'comment',
+    'overlay',
+    'toolbar',
+  ];
+
+  module_disable($modules);
+  drupal_uninstall_modules($modules);
+}
