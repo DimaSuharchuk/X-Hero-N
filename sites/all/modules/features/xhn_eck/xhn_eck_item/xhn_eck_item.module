@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECK: Item feature.
+ */
+
+include_once 'xhn_eck_item.features.inc';

@@ -1,0 +1,12 @@
+name = ECK: Item
+core = 7.x
+package = Features: ECK
+dependencies[] = ctools
+dependencies[] = eck
+dependencies[] = features
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[eck_bundle][] = item_item
+features[eck_entity_type][] = item
+features[features_api][] = api:2
+features[variable][] = field_bundle_settings_item__item

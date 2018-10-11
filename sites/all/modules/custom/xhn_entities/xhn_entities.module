@@ -68,39 +68,22 @@ function xhn_entities_eck_property_type_schema_alter(&$schema, $type) {
 /**
  * Implements hook_entity_property_widget_alter().
  */
-//function xhn_entities_entity_property_widget_alter($widget, $bundle, $property) {
-//    switch ($bundle) {
-//      case BA_ENT_PAX_BNDL_ADULT:
-//      case BA_ENT_PAX_BNDL_CHILD:
-//      case BA_ENT_PAX_BNDL_INFANT:
-//        switch ($property) {
-//          case BA_ENT_PAX_PROP_DOB:
-//          case BA_ENT_PAX_PROP_FNAME:
-//          case BA_ENT_PAX_PROP_LNAME:
-//            $widget['#required'] = TRUE;
-//            break;
-//
-//          case BA_ENT_PAX_PROP_GENDER:
-//            $widget['#options']  = $bundle == BA_ENT_PAX_BNDL_ADULT ? array(
-//              t('Mr'),
-//              t('Ms'),
-//            ) : array(t('Mstr'), t('Miss'));
-//            $widget['#required'] = TRUE;
-//            break;
-//        }
-//        break;
-//    }
-//
-//    // Set default ranges of 'Date of Birth' property for passenger types.
-//    if ($bundle == BA_ENT_PAX_BNDL_ADULT && $property == BA_ENT_PAX_PROP_DOB) {
-//      $widget['#date_year_range'] = '-100:-12';
-//    }
-//    if ($bundle == BA_ENT_PAX_BNDL_CHILD && $property == BA_ENT_PAX_PROP_DOB) {
-//      $widget['#date_year_range'] = '-11:-3';
-//    }
-//    if ($bundle == BA_ENT_PAX_BNDL_INFANT && $property == BA_ENT_PAX_PROP_DOB) {
-//      $widget['#date_year_range'] = '-2:0';
-//    }
-//
-//    return $widget;
-//}
+function xhn_entities_entity_property_widget_alter($widget, $bundle, $property) {
+  switch ($bundle) {
+    case 'item':
+      switch ($property) {
+        case 'category':
+          $widget['#options'] = [
+            'artifact' => 'Артефакт',
+            'potion' => 'Зелье',
+            'scroll' => 'Свиток',
+            'other' => 'Другое',
+          ];
+          $widget['#default_value'] = 'artifact';
+          break;
+      }
+      break;
+  }
+
+  return $widget;
+}
