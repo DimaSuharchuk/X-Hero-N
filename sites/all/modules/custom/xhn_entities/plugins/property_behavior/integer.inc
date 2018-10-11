@@ -16,6 +16,9 @@ function xhn_entities_integer_property_entity_widget($property, $variables) {
   $widget = [
     '#type' => 'textfield',
     '#title' => $variables['properties'][$property]['label'],
+    '#attributes' => [
+      ' type' => 'number',
+    ],
   ];
 
   foreach (module_implements('entity_property_widget_alter') as $module) {
