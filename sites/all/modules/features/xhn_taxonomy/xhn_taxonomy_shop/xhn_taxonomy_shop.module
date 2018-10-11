@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Taxonomy: Shop feature.
+ */
+
+include_once 'xhn_taxonomy_shop.features.inc';

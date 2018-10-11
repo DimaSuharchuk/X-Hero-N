@@ -19,3 +19,4 @@ dependencies[] = xhn_entities
 
 ; Features.
 dependencies[] = xhn_eck_item
+dependencies[] = xhn_taxonomy_shop
