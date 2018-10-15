@@ -81,6 +81,11 @@ function xhn_entities_entity_property_widget_alter($widget, $bundle, $property) 
           ];
           $widget['#default_value'] = 'artifact';
           break;
+
+        case 'weight_in_shop':
+          $range = range(1, 12);
+          $widget['#options'] = array_combine($range, $range);
+          break;
       }
       break;
   }
