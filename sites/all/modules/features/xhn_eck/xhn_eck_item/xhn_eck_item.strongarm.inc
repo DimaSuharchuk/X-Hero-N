@@ -49,43 +49,46 @@ function xhn_eck_item_strongarm() {
           'weight' => '13',
         ),
         'lifesteal' => array(
-          'weight' => '14',
-        ),
-        'health_regen_units' => array(
           'weight' => '15',
         ),
-        'health_regen_percent' => array(
+        'health_regen_units' => array(
           'weight' => '16',
         ),
-        'mana_regen_units' => array(
+        'health_regen_percent' => array(
           'weight' => '17',
         ),
-        'mana_regen_percent' => array(
+        'mana_regen_units' => array(
           'weight' => '18',
         ),
-        'attack_speed' => array(
+        'mana_regen_percent' => array(
           'weight' => '19',
         ),
-        'critical' => array(
+        'attack_speed' => array(
           'weight' => '20',
         ),
-        'dodge' => array(
+        'critical' => array(
           'weight' => '21',
         ),
-        'move_speed' => array(
+        'dodge' => array(
           'weight' => '22',
         ),
-        'passive' => array(
+        'move_speed' => array(
           'weight' => '23',
         ),
-        'active' => array(
+        'passive' => array(
           'weight' => '24',
+        ),
+        'active' => array(
+          'weight' => '25',
         ),
         'category' => array(
           'weight' => '0',
         ),
         'weight_in_shop' => array(
           'weight' => '2',
+        ),
+        'mana' => array(
+          'weight' => '14',
         ),
       ),
       'display' => array(),

@@ -100,7 +100,7 @@ function xhn_eck_item_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 26,
+      'weight' => 27,
     ),
   );
 
@@ -144,7 +144,7 @@ function xhn_eck_item_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 25,
+      'weight' => 26,
     ),
   );
 
