@@ -18,71 +18,71 @@ function xhn_eck_item_strongarm() {
     'view_modes' => array(),
     'extra_fields' => array(
       'form' => array(
-        'category' => array(
-          'weight' => '0',
-        ),
         'name' => array(
           'weight' => '1',
         ),
         'description' => array(
-          'weight' => '2',
-        ),
-        'gold_cost' => array(
           'weight' => '3',
         ),
-        'tree_cost' => array(
+        'gold_cost' => array(
           'weight' => '4',
         ),
-        'strength' => array(
+        'tree_cost' => array(
           'weight' => '5',
         ),
-        'agility' => array(
+        'strength' => array(
           'weight' => '6',
         ),
-        'intelligence' => array(
+        'agility' => array(
           'weight' => '7',
         ),
-        'attack' => array(
+        'intelligence' => array(
           'weight' => '8',
         ),
-        'defense' => array(
+        'attack' => array(
           'weight' => '9',
         ),
-        'health' => array(
+        'defense' => array(
           'weight' => '10',
         ),
-        'lifesteal' => array(
+        'health' => array(
           'weight' => '11',
         ),
-        'health_regen_units' => array(
+        'lifesteal' => array(
           'weight' => '12',
         ),
-        'health_regen_percent' => array(
+        'health_regen_units' => array(
           'weight' => '13',
         ),
-        'mana_regen_units' => array(
+        'health_regen_percent' => array(
           'weight' => '14',
         ),
-        'mana_regen_percent' => array(
+        'mana_regen_units' => array(
           'weight' => '15',
         ),
-        'attack_speed' => array(
+        'mana_regen_percent' => array(
           'weight' => '16',
         ),
-        'critical' => array(
+        'attack_speed' => array(
           'weight' => '17',
         ),
-        'dodge' => array(
+        'critical' => array(
           'weight' => '18',
         ),
-        'move_speed' => array(
+        'dodge' => array(
           'weight' => '19',
         ),
-        'passive' => array(
+        'move_speed' => array(
           'weight' => '20',
         ),
-        'active' => array(
+        'passive' => array(
           'weight' => '21',
+        ),
+        'active' => array(
+          'weight' => '22',
+        ),
+        'category' => array(
+          'weight' => '0',
         ),
       ),
       'display' => array(),

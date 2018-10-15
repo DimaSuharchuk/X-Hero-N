@@ -25,7 +25,6 @@ function xhn_eck_item_eck_bundle_info() {
       'label' => 'Item',
       'config' => array(
         'managed_properties' => array(
-          'category' => 'category',
           'name' => 'name',
           'description' => 'description',
           'tree_cost' => 'tree_cost',
@@ -47,6 +46,7 @@ function xhn_eck_item_eck_bundle_info() {
           'move_speed' => 'move_speed',
           'passive' => 'passive',
           'active' => 'active',
+          'category' => 'category',
         ),
       ),
     ),
@@ -63,11 +63,6 @@ function xhn_eck_item_eck_entity_type_info() {
       'name' => 'item',
       'label' => 'Item',
       'properties' => array(
-        'category' => array(
-          'label' => 'Категория',
-          'type' => 'text',
-          'behavior' => 'select',
-        ),
         'name' => array(
           'label' => 'Название',
           'type' => 'text',
@@ -172,6 +167,11 @@ function xhn_eck_item_eck_entity_type_info() {
           'label' => 'Активные способности',
           'type' => 'long_text',
           'behavior' => 'long_text',
+        ),
+        'category' => array(
+          'label' => 'Категория',
+          'type' => 'text',
+          'behavior' => 'select',
         ),
       ),
     ),
