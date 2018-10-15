@@ -20,3 +20,4 @@ dependencies[] = xhn_entities
 ; Features.
 dependencies[] = xhn_eck_item
 dependencies[] = xhn_taxonomy_shop
+dependencies[] = xhn_views_reference_item_requiring_fields
