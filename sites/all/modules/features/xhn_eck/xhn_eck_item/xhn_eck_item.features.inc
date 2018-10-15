@@ -47,6 +47,7 @@ function xhn_eck_item_eck_bundle_info() {
           'passive' => 'passive',
           'active' => 'active',
           'category' => 'category',
+          'weight_in_shop' => 'weight_in_shop',
         ),
       ),
     ),
@@ -171,6 +172,11 @@ function xhn_eck_item_eck_entity_type_info() {
         'category' => array(
           'label' => 'Категория',
           'type' => 'text',
+          'behavior' => 'select',
+        ),
+        'weight_in_shop' => array(
+          'label' => 'Вес в магазине',
+          'type' => 'integer',
           'behavior' => 'select',
         ),
       ),

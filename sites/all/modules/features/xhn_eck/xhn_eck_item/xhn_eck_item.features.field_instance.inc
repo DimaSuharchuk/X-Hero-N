@@ -56,7 +56,7 @@ function xhn_eck_item_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 2,
+      'weight' => 4,
     ),
   );
 
@@ -100,7 +100,7 @@ function xhn_eck_item_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 25,
+      'weight' => 26,
     ),
   );
 
@@ -144,7 +144,7 @@ function xhn_eck_item_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 24,
+      'weight' => 25,
     ),
   );
 
@@ -181,7 +181,7 @@ function xhn_eck_item_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 23,
+      'weight' => 1,
     ),
   );
 
