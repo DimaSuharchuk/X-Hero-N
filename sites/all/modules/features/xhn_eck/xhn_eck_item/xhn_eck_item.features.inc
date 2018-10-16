@@ -26,7 +26,6 @@ function xhn_eck_item_eck_bundle_info() {
       'config' => array(
         'managed_properties' => array(
           'name' => 'name',
-          'description' => 'description',
           'tree_cost' => 'tree_cost',
           'gold_cost' => 'gold_cost',
           'agility' => 'agility',
@@ -69,11 +68,6 @@ function xhn_eck_item_eck_entity_type_info() {
           'label' => 'Название',
           'type' => 'text',
           'behavior' => 'textfield',
-        ),
-        'description' => array(
-          'label' => 'Описание',
-          'type' => 'long_text',
-          'behavior' => 'long_text',
         ),
         'tree_cost' => array(
           'label' => 'Дерево',

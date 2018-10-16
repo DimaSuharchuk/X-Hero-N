@@ -10,6 +10,46 @@
 function xhn_eck_item_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'item-item-field_description'.
+  $field_instances['item-item-field_description'] = array(
+    'bundle' => 'item',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'item',
+    'field_name' => 'field_description',
+    'label' => 'Описание',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'item-item-field_icon'.
   $field_instances['item-item-field_icon'] = array(
     'bundle' => 'item',
@@ -189,6 +229,7 @@ function xhn_eck_item_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Иконка');
   t('Магазин');
+  t('Описание');
   t('Требует');
   t('Требуется для');
 
