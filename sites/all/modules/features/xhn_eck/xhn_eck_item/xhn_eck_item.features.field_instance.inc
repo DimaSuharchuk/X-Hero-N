@@ -100,50 +100,6 @@ function xhn_eck_item_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'item-item-field_required_by'.
-  $field_instances['item-item-field_required_by'] = array(
-    'bundle' => 'item',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'bypass_access' => FALSE,
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'item',
-    'field_name' => 'field_required_by',
-    'label' => 'Требуется для',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 27,
-    ),
-  );
-
   // Exported field_instance: 'item-item-field_requires'.
   $field_instances['item-item-field_requires'] = array(
     'bundle' => 'item',
@@ -231,7 +187,6 @@ function xhn_eck_item_field_default_field_instances() {
   t('Магазин');
   t('Описание');
   t('Требует');
-  t('Требуется для');
 
   return $field_instances;
 }

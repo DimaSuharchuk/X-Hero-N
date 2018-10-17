@@ -51,40 +51,6 @@ function xhn_eck_item_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_required_by'.
-  $field_bases['field_required_by'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_required_by',
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'handler' => 'views',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'view' => array(
-          'args' => array(),
-          'display_name' => 'entityreference_1',
-          'view_name' => 'item_requiring_autocomplete',
-        ),
-      ),
-      'target_type' => 'item',
-    ),
-    'translatable' => 0,
-    'type' => 'entityreference',
-  );
-
   // Exported field_base: 'field_requires'.
   $field_bases['field_requires'] = array(
     'active' => 1,
