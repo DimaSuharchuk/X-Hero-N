@@ -16,6 +16,7 @@ dependencies[] = views_ui
 
 ; Custom modules.
 dependencies[] = xhn_entities
+dependencies[] = xhn_item_migrate
 
 ; Features.
 dependencies[] = xhn_eck_item

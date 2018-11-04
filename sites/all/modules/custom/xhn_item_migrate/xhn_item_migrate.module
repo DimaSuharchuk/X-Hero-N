@@ -1,0 +1,101 @@
+<?php
+/**
+ * @file
+ * Main file for export/import Items artifacts.
+ */
+
+module_load_include('inc', 'xhn_item_migrate', 'inc/export');
+module_load_include('inc', 'xhn_item_migrate', 'inc/import');
+module_load_include('inc', 'xhn_item_migrate', 'inc/remove');
+
+/**
+ * Implements hook_menu().
+ */
+function xhn_item_migrate_menu() {
+  $items = [];
+
+  $items['admin/settings/migrate'] = [
+    'title' => 'Items migrate',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['batch_items_migrate_form'],
+    'access arguments' => ['administer content'],
+  ];
+
+  return $items;
+}
+
+/**
+ * Form with buttons for items migrate functionality.
+ *
+ * {@inheritdoc}
+ */
+function batch_items_migrate_form($form, &$form_state) {
+  $form['info'] = [
+    '#type' => 'item',
+    '#markup' => t('Be careful! Use export before import. Before import remove all values to prevent duplicates!'),
+  ];
+
+  // Export.
+  $form['export'] = [
+    '#type' => 'submit',
+    '#value' => t('Export'),
+    '#submit' => ['batch_items_export'],
+  ];
+
+  // Import.
+  $form['import_wrapper'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Import'),
+  ];
+  $form['import_wrapper']['json'] = [
+    '#type' => 'managed_file',
+    '#title' => 'JSON file',
+    '#description' => t('JSON file with artifacts info.'),
+    '#upload_validators' => [
+      'file_validate_extensions' => ['json'],
+    ],
+    '#progress_indicator' => 'bar',
+    '#upload_location' => 'public://tmp/',
+  ];
+  $form['import_wrapper']['import'] = [
+    '#type' => 'submit',
+    '#value' => t('Import'),
+    '#validate' => ['batch_items_import_validate'],
+    '#submit' => ['batch_items_import'],
+  ];
+
+  // Remove.
+  $form['remove'] = [
+    '#type' => 'submit',
+    '#value' => t('Remove all'),
+    '#submit' => ['batch_items_remove'],
+    '#attributes' => [
+      'class' => ['button', 'alert'],
+    ],
+  ];
+
+  return $form;
+}
+
+/**
+ * Validate import form elements.
+ *
+ * {@inheritdoc}
+ */
+function batch_items_import_validate($form, &$form_state) {
+  if (!$form_state['values']['json']) {
+    form_set_error('json', t('Choose json file.'));
+  }
+}
+
+/**
+ * Helper function returns array of loaded Items entities.
+ */
+function _get_items() {
+  $ids = array_keys((new EntityFieldQuery())
+    ->entityCondition('entity_type', 'item')
+    ->entityCondition('bundle', 'item')
+    ->execute()['item']);
+
+  return entity_load('item', $ids);
+}

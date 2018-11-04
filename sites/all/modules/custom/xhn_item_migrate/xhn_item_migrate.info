@@ -1,0 +1,4 @@
+name = X-Hero-N Item Migrate
+description = Export/Import batch of artifacts.
+package = Custom
+core = 7.x
