@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * xhn_eck_item.features.inc
@@ -48,6 +49,7 @@ function xhn_eck_item_eck_bundle_info() {
           'category' => 'category',
           'weight_in_shop' => 'weight_in_shop',
           'mana' => 'mana',
+          'boss' => 'boss',
         ),
       ),
     ),
@@ -178,6 +180,11 @@ function xhn_eck_item_eck_entity_type_info() {
           'label' => 'Мана',
           'type' => 'integer',
           'behavior' => 'integer',
+        ),
+        'boss' => array(
+          'label' => 'Предмет с босса',
+          'type' => 'boolean',
+          'behavior' => 'boolean',
         ),
       ),
     ),

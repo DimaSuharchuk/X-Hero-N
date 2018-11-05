@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * xhn_eck_item.features.field_instance.inc
@@ -46,7 +47,7 @@ function xhn_eck_item_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -96,7 +97,7 @@ function xhn_eck_item_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -140,7 +141,7 @@ function xhn_eck_item_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 26,
+      'weight' => 27,
     ),
   );
 
@@ -177,7 +178,7 @@ function xhn_eck_item_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
