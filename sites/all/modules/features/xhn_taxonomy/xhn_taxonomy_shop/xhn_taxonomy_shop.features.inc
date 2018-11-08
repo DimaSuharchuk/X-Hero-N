@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * xhn_taxonomy_shop.features.inc
