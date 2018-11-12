@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the Content Type: Item feature.
+ */
+
+include_once 'xhn_ct_item.features.inc';
