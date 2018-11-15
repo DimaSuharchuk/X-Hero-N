@@ -65,6 +65,10 @@ function batch_items_migrate_form($form, &$form_state) {
   ];
 
   // Remove.
+  $form['remove_info'] = [
+    '#type' => 'item',
+    '#markup' => t('Be careful! Use if only "Item" nodes in DB.'),
+  ];
   $form['remove'] = [
     '#type' => 'submit',
     '#value' => t('Remove all'),
@@ -90,12 +94,22 @@ function batch_items_import_validate($form, &$form_state) {
 
 /**
  * Helper function returns array of loaded Items entities.
+ *
+ * @param bool $load_nodes
+ *  Returns already loaded all nodes by default.
+ *
+ * @return mixed
  */
-function _get_items() {
-  $ids = array_keys((new EntityFieldQuery())
-    ->entityCondition('entity_type', 'item')
-    ->entityCondition('bundle', 'item')
-    ->execute()['item']);
+function _get_items($load_nodes = TRUE) {
+  $ids = db_select('node', 'n')
+    ->fields('n', ['nid'])
+    ->condition('type', 'item')
+    ->execute()
+    ->fetchCol();
 
-  return entity_load('item', $ids);
+  if (!$load_nodes) {
+    return $ids;
+  }
+
+  return node_load_multiple($ids);
 }

@@ -1,0 +1,4 @@
+name = X-Hero-N Custom Alters
+description = Implements different hooks for alter.
+package = Custom
+core = 7.x

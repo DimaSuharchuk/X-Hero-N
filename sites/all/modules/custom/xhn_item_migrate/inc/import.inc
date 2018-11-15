@@ -39,26 +39,40 @@ function batch_items_import($form, $form_state) {
  *  Batch context.
  */
 function batch_items_import_batch($artifact, &$context) {
-  // Get Item entity properties, not fields.
-  $item_entity_properties = array_keys(entity_get_property_info('item')['properties']);
+  // Get node fields name.
+  $fields = array_keys(field_info_instances('node', 'item'));
+  // Remove special fields from list.
+  $special_fields = [
+    'field_icon',
+    'field_shop',
+    'field_requires',
+    'field_description',
+    'field_active',
+    'field_passive',
+  ];
+  $fields = array_diff($fields, $special_fields);
 
-  // Before using entity wrapper we need to create and save new entity.
-  $new_item = entity_create('item', ['type' => 'item']);
-  entity_save('item', $new_item);
+  // Before using entity wrapper we need to create and save new node.
+  $new_item = entity_create('node', ['type' => 'item']);
+  // PathAuto enable.
+  $new_item->path = ['pathauto' => 1];
+  entity_save('node', $new_item);
 
   // Use wrapper for easy filling values.
-  $item_wrapper = entity_metadata_wrapper('item', $new_item);
+  $item_wrapper = entity_metadata_wrapper('node', $new_item);
 
   // Set properties.
-  foreach ($artifact as $property_name => $value) {
-    if (in_array($property_name, $item_entity_properties)) {
-      $item_wrapper->$property_name->set($value);
+  foreach ($artifact as $field_name => $value) {
+    if (in_array($field_name, $fields)) {
+      $item_wrapper->{$field_name}->set($value);
     }
   }
 
   /**
-   * Fields.
+   * Special fields.
    */
+  // Title.
+  $item_wrapper->title->set($artifact->title);
   // Icon.
   $icon_content = file_get_contents($artifact->icon_base64);
   $file_temp = file_save_data($icon_content, "public://item_icons/{$artifact->icon_name}", FILE_EXISTS_REPLACE);
@@ -66,7 +80,8 @@ function batch_items_import_batch($artifact, &$context) {
     [
       'fid' => $file_temp->fid,
       'filename' => $file_temp->filename,
-      'alt' => $artifact->name,
+      'alt' => $artifact->title,
+      'title' => $artifact->title,
       'filemime' => $file_temp->filemime,
       'uid' => 1,
       'uri' => $file_temp->uri,
@@ -74,10 +89,24 @@ function batch_items_import_batch($artifact, &$context) {
     ]
   );
   // Description.
-  if (isset($artifact->description)) {
+  if (isset($artifact->field_description)) {
     $item_wrapper->field_description->set([
       'format' => 'full_html',
-      'value' => $artifact->description,
+      'value' => $artifact->field_description,
+    ]);
+  }
+  // Active.
+  if (isset($artifact->field_active)) {
+    $item_wrapper->field_active->set([
+      'format' => 'full_html',
+      'value' => $artifact->field_active,
+    ]);
+  }
+  // Passive.
+  if (isset($artifact->field_passive)) {
+    $item_wrapper->field_passive->set([
+      'format' => 'full_html',
+      'value' => $artifact->field_passive,
     ]);
   }
   // Shop.
@@ -88,9 +117,9 @@ function batch_items_import_batch($artifact, &$context) {
   if (isset($artifact->field_requires)) {
     $requires_ids = [];
     foreach ($artifact->field_requires as $name) {
-      $item_id = db_select('eck_item', 'i')
-        ->fields('i', ['id'])
-        ->condition('name', $name)
+      $item_id = db_select('node', 'n')
+        ->fields('n', ['nid'])
+        ->condition('title', $name)
         ->execute()
         ->fetchField();
       if ($item_id) {
@@ -107,7 +136,7 @@ function batch_items_import_batch($artifact, &$context) {
   $item_wrapper->save();
 
   // Count iterations.
-  if (!$context['results']['count']) {
+  if (!isset($context['results']['count'])) {
     $context['results']['count'] = 0;
   }
   $context['results']['count']++;

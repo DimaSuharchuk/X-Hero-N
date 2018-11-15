@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Implements different hooks for alter.
+ */
+
+/**
+ * Implements hook_views_query_alter().
+ *
+ * {@inheritdoc}
+ */
+function xhn_alters_views_query_alter(&$view, &$query) {
+  switch ($view->name) {
+    case 'artifacts':
+      // @todo Create good new view and write sort in this place.
+      $query->orderby[] = [
+        'field' => 'cast(eck_item_weight_in_shop as decimal)',
+        'direction' => 'ASC',
+      ];
+      break;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * {@inheritdoc}
+ */
+function xhn_alters_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'item_node_form':
+      $fields = array_keys(field_info_instances('node', 'item'));
+      foreach ($fields as $field) {
+        if (isset($form[$field][LANGUAGE_NONE][0]['#base_type'])
+          && $form[$field][LANGUAGE_NONE][0]['#base_type'] == 'textarea') {
+          // Set text format Full html as default.
+          $form[$field][LANGUAGE_NONE][0]['#format'] = 'full_html';
+          // Remove unnecessary text format field's help fieldset.
+          $form[$field][LANGUAGE_NONE][0]['#after_build'] = [
+            'xhn_alters_text_format_clearer',
+          ];
+        }
+      }
+      break;
+  }
+}
+
+/**
+ * Remove unnecessary text format field's "helper fieldset".
+ *
+ * @param $element
+ *
+ * @return mixed
+ */
+function xhn_alters_text_format_clearer($element) {
+  unset($element['format']);
+  return $element;
+}

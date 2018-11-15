@@ -8,7 +8,6 @@
 function xhn_core_enable() {
   // Disable unnecessary drupal core modules.
   $modules = [
-    'comment',
     'overlay',
     'toolbar',
   ];

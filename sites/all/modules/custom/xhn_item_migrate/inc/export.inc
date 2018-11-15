@@ -36,30 +36,29 @@ function batch_items_export() {
  *  Batch context.
  */
 function batch_items_export_batch($artifact, &$context) {
-  // Get Item entity properties, not fields.
-  $item_properties = array_keys(entity_get_property_info('item')['properties']);
-  // Remove useless properties.
-  $item_properties = array_diff($item_properties, ['id', 'type']);
+  // Get node fields name.
+  $fields = array_keys(field_info_instances('node', 'item'));
+  // Remove special fields from list.
+  $special_fields = ['field_icon', 'field_shop', 'field_requires'];
+  $fields = array_diff($fields, $special_fields);
 
   // Fill properties values to info array.
   $item_info = [];
-  foreach ($item_properties as $property_name) {
-    if (!empty($artifact->$property_name) && $property_name !== 'id') {
-      $item_info[$property_name] = $artifact->$property_name;
+  foreach ($fields as $field) {
+    if (!empty($artifact->{$field})) {
+      $item_info[$field] = $artifact->{$field}[LANGUAGE_NONE][0]['value'];
     }
   }
 
   /**
-   * Fields.
+   * Special fields.
    */
+  // Title.
+  $item_info['title'] = $artifact->title;
   // Icon.
   $item_info['icon_name'] = $artifact->field_icon[LANGUAGE_NONE][0]['filename'];
   $icon_uri = file_get_contents($artifact->field_icon[LANGUAGE_NONE][0]['uri']);
   $item_info['icon_base64'] = 'data:image/png;base64,' . base64_encode($icon_uri);
-  // Description.
-  if (!empty($artifact->field_description)) {
-    $item_info['description'] = $artifact->field_description[LANGUAGE_NONE][0]['value'];
-  }
   // Taxonomy shop.
   if (!empty($artifact->field_shop)) {
     $item_info['shop_ids'] = [];
@@ -73,7 +72,7 @@ function batch_items_export_batch($artifact, &$context) {
     $artifact_wrapper = entity_metadata_wrapper('item', $artifact);
     $field_requires = $artifact_wrapper->field_requires->value();
     foreach ($field_requires as $require_item) {
-      $item_info['field_requires'][] = $require_item->name;
+      $item_info['field_requires'][] = $require_item->title;
     }
   }
 
