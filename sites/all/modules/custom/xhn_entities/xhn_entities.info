@@ -1,6 +1,6 @@
 name = X-Hero N Entities
 description = Provides extra fields definition in code to be attached to entities. This has common code for other Entity builders, it defines a common fields which can be used by many entities.
 core = 7.x
-package = X-Hero N
+package = Custom
 dependencies[] = entity
 dependencies[] = eck

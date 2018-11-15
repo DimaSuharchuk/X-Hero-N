@@ -92,33 +92,3 @@ function xhn_entities_entity_property_widget_alter($widget, $bundle, $property) 
 
   return $widget;
 }
-
-/**
- * Implements hook_form_alter().
- *
- * {@inheritdoc}
- */
-function xhn_entities_form_alter(&$form, &$form_state, $form_id) {
-  switch ($form_id) {
-    case 'eck__entity__form_edit_item_item':
-      // Set text format Full html as default.
-      $form['field_description'][LANGUAGE_NONE][0]['#format'] = 'full_html';
-      // Remove unnecessary text format field's help fieldset.
-      $form['field_description'][LANGUAGE_NONE][0]['#after_build'] = [
-        'xhn_entities_text_format_clearer',
-      ];
-      break;
-  }
-}
-
-/**
- * Remove unnecessary text format field's helper fieldset.
- *
- * @param $element
- *
- * @return mixed
- */
-function xhn_entities_text_format_clearer($element) {
-  unset($element['format']);
-  return $element;
-}
