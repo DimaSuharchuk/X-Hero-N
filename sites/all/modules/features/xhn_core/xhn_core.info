@@ -1,14 +1,12 @@
 name = X-Hero N core
 description = Feature for install, configure site and enabling modules automatically.
 core = 7.x
-package = X-Hero N
+package = Custom
 
 ; Contrib modules.
 dependencies[] = admin_menu
 dependencies[] = adminimal_admin_menu
-dependencies[] = date
-dependencies[] = date_popup
-dependencies[] = eck
+dependencies[] = comment
 dependencies[] = features
 dependencies[] = jquery_update
 dependencies[] = module_filter
