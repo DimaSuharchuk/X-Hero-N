@@ -41,6 +41,13 @@ function xhn_alters_form_alter(&$form, &$form_state, $form_id) {
             'xhn_alters_text_format_clearer',
           ];
         }
+
+        if (isset($form[$field][LANGUAGE_NONE][0]['value']['#number_type'])
+          && $form[$field][LANGUAGE_NONE][0]['value']['#number_type'] == 'integer') {
+          $form[$field][LANGUAGE_NONE][0]['value']['#attributes'] = [
+            ' type' => 'number'
+          ];
+        }
       }
       break;
   }
