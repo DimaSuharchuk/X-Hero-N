@@ -20,4 +20,5 @@ dependencies[] = xhn_item_migrate
 ; Features.
 dependencies[] = xhn_ct_item
 dependencies[] = xhn_taxonomy_shop
+dependencies[] = xhn_views_page_artifacts
 dependencies[] = xhn_views_reference_item_requiring_fields
