@@ -6,23 +6,6 @@
  */
 
 /**
- * Implements hook_views_query_alter().
- *
- * {@inheritdoc}
- */
-function xhn_alters_views_query_alter(&$view, &$query) {
-  switch ($view->name) {
-    case 'artifacts':
-      // @todo Create good new view and write sort in this place.
-      $query->orderby[] = [
-        'field' => 'cast(eck_item_weight_in_shop as decimal)',
-        'direction' => 'ASC',
-      ];
-      break;
-  }
-}
-
-/**
  * Implements hook_form_alter().
  *
  * {@inheritdoc}
