@@ -1,0 +1,23 @@
+.view-artifacts {
+
+  .grid-group-wrapper {
+    display: inline-block;
+    border: solid 1px #ddd;
+
+    h6 {
+      text-align: center;
+    }
+    table {
+      border: none;
+      background: transparent;
+      margin: 0;
+
+      tr:nth-of-type(even) {
+        background: transparent;
+      }
+      td {
+        padding: 3px;
+      }
+    }
+  }
+}

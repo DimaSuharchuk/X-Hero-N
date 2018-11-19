@@ -1,0 +1,4 @@
+name = X-Hero N Custom
+description = Different custom functionality.
+core = 7.x
+package = Custom

@@ -54,17 +54,16 @@ function xhn_views_page_artifacts_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Field: Content: Иконка */
-  $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
-  $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
-  $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
-  $handler->display->display_options['fields']['field_icon']['label'] = '';
-  $handler->display->display_options['fields']['field_icon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_icon']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_icon']['settings'] = array(
-    'image_style' => '',
-    'image_link' => '',
-  );
+  /* Field: Content: Rendered Node */
+  $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
+  $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
+  $handler->display->display_options['fields']['rendered_entity']['label'] = '';
+  $handler->display->display_options['fields']['rendered_entity']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
+  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'icon';
+  $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
   /* Sort criterion: Taxonomy term: Weight */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';

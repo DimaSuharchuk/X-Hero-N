@@ -5,3 +5,14 @@
 // %font-FONTNAME   {}
 // %font-sans-serif { font-family: sans-serif; }
 // %font-serif      { font-family: serif; }
+
+$body-font-color: #fff;
+$body-bg: #000;
+
+body {
+  background: $body-bg;
+
+  * {
+    color: $body-font-color;
+  }
+}

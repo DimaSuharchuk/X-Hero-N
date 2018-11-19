@@ -78,7 +78,7 @@
 @import "../../zurb_foundation/scss/foundation/components/visibility";
 
 // Comment out this import if you don't want to use Bourbon, a replacement for Compass mixins.
-@import "bourbon";
+//@import "bourbon";
 
 // Import our mixins early so they can be used by other partials.
 // Optional.
@@ -87,14 +87,14 @@
 // Common file is where you place common utility classes to extend or
 // parametrics.
 // Optional.
-// @import "base/common";
+@import "base/common";
 
 // Fix for some Drupal CSS quirks (Drupalisms).
 @import "base/drupal";
 
 // Styling for elements.
 // Optional.
-// @import "base/elements";
+@import "base/elements";
 
 // Layout
 // Each section of the document has it's own partial seperated out to improve
@@ -105,8 +105,9 @@
 @import "layout/footer";
 
 // Modules
-// @import "modules/block";
+@import "modules/block";
 // @import "modules/button";
+@import "modules/views";
 
 // States
 // @import "states/collapse";
@@ -116,4 +117,3 @@
 
 // Older IE support
 // @import "vendor/ie";
-

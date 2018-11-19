@@ -59,6 +59,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 25,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -103,6 +109,12 @@ function xhn_ct_item_field_default_field_instances() {
         ),
         'type' => 'number_integer',
         'weight' => 9,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -150,6 +162,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 11,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 25,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -196,6 +214,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 20,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 24,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -241,6 +265,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 1,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 23,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -284,6 +314,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 0,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 22,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -324,6 +360,12 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
+        'weight' => 21,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 21,
       ),
       'teaser' => array(
@@ -372,6 +414,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 12,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -412,6 +460,12 @@ function xhn_ct_item_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 5,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 19,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -457,6 +511,12 @@ function xhn_ct_item_field_default_field_instances() {
         ),
         'type' => 'number_integer',
         'weight' => 22,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -504,6 +564,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 6,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -549,6 +615,12 @@ function xhn_ct_item_field_default_field_instances() {
         ),
         'type' => 'number_integer',
         'weight' => 13,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -596,6 +668,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 17,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -642,6 +720,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 16,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -684,6 +768,16 @@ function xhn_ct_item_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 4,
+      ),
+      'icon' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -738,6 +832,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 10,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -783,6 +883,12 @@ function xhn_ct_item_field_default_field_instances() {
         ),
         'type' => 'number_integer',
         'weight' => 15,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -830,6 +936,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 14,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -875,6 +987,12 @@ function xhn_ct_item_field_default_field_instances() {
         ),
         'type' => 'number_integer',
         'weight' => 19,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -922,6 +1040,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 18,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -968,6 +1092,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 23,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1008,6 +1138,12 @@ function xhn_ct_item_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 24,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1052,6 +1188,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 26,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1092,6 +1234,12 @@ function xhn_ct_item_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 2,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1134,6 +1282,12 @@ function xhn_ct_item_field_default_field_instances() {
         ),
         'type' => 'number_integer',
         'weight' => 8,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1181,6 +1335,12 @@ function xhn_ct_item_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 7,
       ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1226,6 +1386,12 @@ function xhn_ct_item_field_default_field_instances() {
         ),
         'type' => 'number_integer',
         'weight' => 3,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 26,
       ),
       'teaser' => array(
         'label' => 'above',

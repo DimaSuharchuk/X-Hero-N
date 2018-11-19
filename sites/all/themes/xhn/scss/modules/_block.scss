@@ -1,0 +1,26 @@
+.block-views-artifacts-block {
+  color: #fff;
+
+  table {
+    background: transparent;
+    tr {
+      background: transparent;
+    }
+  }
+}
+
+.block-xhn-custom-block-artifact-info {
+  .inline-items {
+    display: flex;
+    justify-content: space-around;
+  }
+  svg {
+    margin-bottom: -7px;
+  }
+  .target-node {
+    article {
+      border: 5px solid rgba(255,255,0, 0.8);
+      border-radius: 5px;
+    }
+  }
+}

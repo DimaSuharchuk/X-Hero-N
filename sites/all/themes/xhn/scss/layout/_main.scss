@@ -1,1 +1,8 @@
-// Non-modular or client styles for the .l-content region.
+.l-main {
+  max-width: none;
+
+  #page-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}

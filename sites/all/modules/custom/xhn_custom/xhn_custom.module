@@ -1,0 +1,140 @@
+<?php
+
+/**
+ * @file
+ * Different custom functionality.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function xhn_custom_menu() {
+  $items = [];
+
+  $items['node/get/ajax/%'] = [
+    'page callback' => 'xhn_custom_item_get_ajax',
+    'page arguments' => [3],
+    'type' => MENU_CALLBACK,
+    'access arguments' => ['access content'],
+    'delivery callback' => 'xhn_custom_ajax_callback',
+  ];
+
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function xhn_custom_theme($existing, $type, $theme, $path) {
+  $templates = drupal_get_path('theme', 'xhn') . '/templates';
+
+  return [
+    'artifact_info' => [
+      'variables' => [
+        'nid' => NULL,
+        'requires' => NULL,
+        'used_for' => NULL,
+      ],
+      'path' => $templates,
+      'template' => 'artifact-info',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ *
+ * {@inheritdoc}
+ */
+function xhn_custom_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['icon'] = [
+    'label' => t('Icon'),
+    'custom settings' => TRUE,
+  ];
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function xhn_custom_block_info() {
+  $blocks = [];
+
+  $blocks['block_artifact_info'] = [
+    'info' => t('Artifact info'),
+    'cache' => DRUPAL_NO_CACHE,
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'artifacts',
+  ];
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * {@inheritdoc}
+ */
+function xhn_custom_block_view($delta = '') {
+  $block = [];
+
+  switch ($delta) {
+    case 'block_artifact_info':
+      $block['content'] = ' ';
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Get all Item requires by node id and send to theme.
+ *
+ * @param $nid
+ *  Item node ID.
+ *
+ * @return string
+ *  Themed block.
+ * @throws \Exception
+ */
+function xhn_custom_item_get_ajax($nid) {
+  $node_wrapper = entity_metadata_wrapper('node', $nid);
+
+  // Get all node IDs of requires artifacts for chosen Item.
+  $requires = [];
+  if ($requires_field_values = $node_wrapper->field_requires->value()) {
+    foreach ($requires_field_values as $node) {
+      $requires[] = $node->nid;
+    }
+  }
+
+  // Get all node IDs artifacts that require Item.
+  $used_for = db_select('field_data_field_requires', 'r')
+    ->fields('r', ['entity_id'])
+    ->condition('field_requires_target_id', $nid)
+    ->execute()
+    ->fetchCol();
+  if (!empty($used_for)) {
+    $used_for = array_unique($used_for);
+  }
+
+  // Ajax callback returns themed block with Artifact's craft info.
+  return theme('artifact_info', [
+    'nid' => $nid,
+    'requires' => $requires,
+    'used_for' => $used_for,
+  ]);
+}
+
+/**
+ * Delivery callback. Just prints html.
+ *
+ * {@inheritdoc}
+ */
+function xhn_custom_ajax_callback($page_callback_result) {
+  print render($page_callback_result);
+
+  // Perform end-of-request tasks.
+  drupal_page_footer();
+}
