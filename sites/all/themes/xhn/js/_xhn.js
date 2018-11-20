@@ -63,59 +63,61 @@
       })
       // After block loaded creates lines between images in block.
           .ajaxComplete(function (event, xhr, settings) {
-            const $block = $('#block-artifact-info-content');
-            const targetArticle = $block.find('.target-node article');
-            const topArticles = $block.find('.used-for-items article');
-            const bottomArticles = $block.find('.require-items article');
+            if (window.location.pathname === '/artifacts') {
+              const $block = $('#block-artifact-info-content');
+              const targetArticle = $block.find('.target-node article');
+              const topArticles = $block.find('.used-for-items article');
+              const bottomArticles = $block.find('.require-items article');
 
-            // Create svg between rows in block.
-            const svgTop = getNode('svg', {width: '100%', height: 50});
-            const svgBottom = getNode('svg', {width: '100%', height: 50});
+              // Create svg between rows in block.
+              const svgTop = getNode('svg', {width: '100%', height: 50});
+              const svgBottom = getNode('svg', {width: '100%', height: 50});
 
-            // Get count of every row artifacts in block.
-            const topCount = $(topArticles).length;
-            const bottomCount = $(bottomArticles).length;
+              // Get count of every row artifacts in block.
+              const topCount = $(topArticles).length;
+              const bottomCount = $(bottomArticles).length;
 
-            // Get main artifact's position placed on center of block.
-            // Margin = 16px + 5px border.
-            const targetCoordX = $(targetArticle).position().left + 21;
+              // Get main artifact's position placed on center of block.
+              // Margin = 16px + 5px border.
+              const targetCoordX = $(targetArticle).position().left + 21;
 
-            if (topCount > 0) {
-              // Attach svg between top and center rows.
-              $('.used-for-items').after(svgTop);
+              if (topCount > 0) {
+                // Attach svg between top and center rows.
+                $('.used-for-items').after(svgTop);
 
-              // For every article in row calculate coordinates and create
-              // lines for svg.
-              $(topArticles).each(function () {
-                // We need only left coordinate of every image in the row.
-                const coordX = $(this).position().left + 16;
-                // Create line node.
-                const line = createLine({
-                  x1: coordX,
-                  y1: 0,
-                  x2: targetCoordX,
-                  y2: 50,
-                  stroke: '#777'
+                // For every article in row calculate coordinates and create
+                // lines for svg.
+                $(topArticles).each(function () {
+                  // We need only left coordinate of every image in the row.
+                  const coordX = $(this).position().left + 16;
+                  // Create line node.
+                  const line = createLine({
+                    x1: coordX,
+                    y1: 0,
+                    x2: targetCoordX,
+                    y2: 50,
+                    stroke: '#777'
+                  });
+                  // Attach line node to svg.
+                  svgTop.append(line);
                 });
-                // Attach line node to svg.
-                svgTop.append(line);
-              });
-            }
-            // All comments the same for this logic. See above.
-            if (bottomCount > 0) {
-              $('.require-items').before(svgBottom);
+              }
+              // All comments the same for this logic. See above.
+              if (bottomCount > 0) {
+                $('.require-items').before(svgBottom);
 
-              $(bottomArticles).each(function () {
-                const coordX = $(this).position().left + 16;
-                const line = createLine({
-                  x1: coordX,
-                  y1: 50,
-                  x2: targetCoordX,
-                  y2: 0,
-                  stroke: '#777'
+                $(bottomArticles).each(function () {
+                  const coordX = $(this).position().left + 16;
+                  const line = createLine({
+                    x1: coordX,
+                    y1: 50,
+                    x2: targetCoordX,
+                    y2: 0,
+                    stroke: '#777'
+                  });
+                  svgBottom.append(line);
                 });
-                svgBottom.append(line);
-              });
+              }
             }
           });
     }
