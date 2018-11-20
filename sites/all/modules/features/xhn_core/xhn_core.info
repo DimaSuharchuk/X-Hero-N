@@ -6,6 +6,7 @@ package = Custom
 ; Contrib modules.
 dependencies[] = admin_menu
 dependencies[] = adminimal_admin_menu
+dependencies[] = ajax_comments
 dependencies[] = comment
 dependencies[] = features
 dependencies[] = jquery_update
