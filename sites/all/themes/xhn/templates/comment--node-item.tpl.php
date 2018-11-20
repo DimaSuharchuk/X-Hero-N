@@ -20,6 +20,8 @@
       <?php
       // We hide the comments and links now so that we can render them later.
       hide($content['links']);
+
+      $content['comment_body'][0]['#markup'] = str_replace("\n", '<br>', $content['comment_body'][0]['#markup']);
       print render($content);
       ?>
       <?php if ($signature): ?>
