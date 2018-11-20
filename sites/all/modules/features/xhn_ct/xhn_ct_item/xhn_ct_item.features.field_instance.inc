@@ -53,11 +53,11 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 25,
+        'weight' => 23,
       ),
       'icon' => array(
         'label' => 'above',
@@ -99,7 +99,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -108,7 +108,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 9,
+        'weight' => 7,
       ),
       'icon' => array(
         'label' => 'above',
@@ -151,7 +151,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -160,7 +160,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 11,
+        'weight' => 9,
       ),
       'icon' => array(
         'label' => 'above',
@@ -203,7 +203,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -212,7 +212,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 20,
+        'weight' => 18,
       ),
       'icon' => array(
         'label' => 'above',
@@ -262,8 +262,8 @@ function xhn_ct_item_field_default_field_instances() {
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 1,
+        'type' => 'list_key',
+        'weight' => 0,
       ),
       'icon' => array(
         'label' => 'above',
@@ -309,10 +309,9 @@ function xhn_ct_item_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 0,
+        'type' => 'hidden',
+        'weight' => 25,
       ),
       'icon' => array(
         'label' => 'above',
@@ -351,7 +350,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -360,7 +359,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 21,
+        'weight' => 19,
       ),
       'icon' => array(
         'label' => 'above',
@@ -403,7 +402,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -412,7 +411,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 12,
+        'weight' => 10,
       ),
       'icon' => array(
         'label' => 'above',
@@ -455,11 +454,11 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 2,
       ),
       'icon' => array(
         'label' => 'above',
@@ -501,7 +500,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -510,7 +509,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 22,
+        'weight' => 20,
       ),
       'icon' => array(
         'label' => 'above',
@@ -553,7 +552,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -562,7 +561,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 6,
+        'weight' => 4,
       ),
       'icon' => array(
         'label' => 'above',
@@ -605,7 +604,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -614,7 +613,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 13,
+        'weight' => 11,
       ),
       'icon' => array(
         'label' => 'above',
@@ -657,7 +656,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -666,7 +665,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 17,
+        'weight' => 15,
       ),
       'icon' => array(
         'label' => 'above',
@@ -709,7 +708,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -718,7 +717,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 16,
+        'weight' => 14,
       ),
       'icon' => array(
         'label' => 'above',
@@ -760,14 +759,14 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'thumbnail',
         ),
         'type' => 'image',
-        'weight' => 4,
+        'weight' => 1,
       ),
       'icon' => array(
         'label' => 'hidden',
@@ -821,7 +820,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -830,7 +829,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 10,
+        'weight' => 8,
       ),
       'icon' => array(
         'label' => 'above',
@@ -873,7 +872,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -882,7 +881,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 15,
+        'weight' => 13,
       ),
       'icon' => array(
         'label' => 'above',
@@ -905,7 +904,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => '%',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -925,7 +924,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -934,7 +933,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 14,
+        'weight' => 12,
       ),
       'icon' => array(
         'label' => 'above',
@@ -977,7 +976,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -986,7 +985,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 19,
+        'weight' => 17,
       ),
       'icon' => array(
         'label' => 'above',
@@ -1029,7 +1028,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -1038,7 +1037,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 18,
+        'weight' => 16,
       ),
       'icon' => array(
         'label' => 'above',
@@ -1081,7 +1080,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -1090,7 +1089,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 23,
+        'weight' => 21,
       ),
       'icon' => array(
         'label' => 'above',
@@ -1133,11 +1132,11 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 24,
+        'weight' => 22,
       ),
       'icon' => array(
         'label' => 'above',
@@ -1182,11 +1181,11 @@ function xhn_ct_item_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
-          'bypass_access' => FALSE,
-          'link' => FALSE,
+          'bypass_access' => 0,
+          'link' => 1,
         ),
         'type' => 'entityreference_label',
-        'weight' => 26,
+        'weight' => 24,
       ),
       'icon' => array(
         'label' => 'above',
@@ -1229,11 +1228,11 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 2,
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 3,
       ),
       'icon' => array(
         'label' => 'above',
@@ -1272,7 +1271,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -1281,7 +1280,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 8,
+        'weight' => 6,
       ),
       'icon' => array(
         'label' => 'above',
@@ -1324,7 +1323,7 @@ function xhn_ct_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -1333,7 +1332,7 @@ function xhn_ct_item_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 7,
+        'weight' => 5,
       ),
       'icon' => array(
         'label' => 'above',
@@ -1377,15 +1376,9 @@ function xhn_ct_item_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 3,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 26,
       ),
       'icon' => array(
         'label' => 'above',

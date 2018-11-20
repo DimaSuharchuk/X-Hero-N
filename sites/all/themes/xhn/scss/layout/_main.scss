@@ -6,3 +6,79 @@
     margin-bottom: 20px;
   }
 }
+.node-type-item {
+  .field-boss {
+    display: block;
+    width: fit-content;
+    border: 2px dashed cyan;
+    padding: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .field-name-field-icon {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 50px;
+    margin-bottom: 50px;
+  }
+  .field-name-field-description {
+    display: inline-block;
+  }
+  .field-name-field-requires {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .field-label {
+      flex-grow: 1;
+      width: 100%;
+    }
+    article {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #777;
+      padding: 10px;
+
+      .field-name-field-icon {
+        margin: 0;
+      }
+      .form-item {
+        margin: 0;
+      }
+    }
+  }
+  #comments {
+    margin-top: 50px;
+
+    textarea {
+      color: #333;
+    }
+
+    .comment {
+      border: 1px solid #4a88af;
+      border-radius: 10px;
+      padding: 15px;
+
+      .commenter-name {
+        display: inline;
+        color: #4a88af;
+      }
+      .comment-time {
+        display: inline;
+        font-size: 0.8em;
+        color: #777;
+      }
+      .comment-text {
+        margin-top: 10px;
+      }
+      .links {
+        margin: 10px 0 0 -1.375rem;
+
+        a {
+          color: #ff0;
+        }
+      }
+    }
+  }
+}
