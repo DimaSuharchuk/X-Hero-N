@@ -23,7 +23,7 @@ function xhn_views_page_artifacts_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Предметы';
+  $handler->display->display_options['title'] = 'Калькулятор';
   $handler->display->display_options['css_class'] = 'small-12 medium-8 columns';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
@@ -88,12 +88,23 @@ function xhn_views_page_artifacts_views_default_views() {
     'item' => 'item',
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
+  /* Display: Artifacts */
+  $handler = $view->new_display('page', 'Artifacts', 'page');
+  $handler->display->display_options['display_description'] = 'Homepage';
   $handler->display->display_options['path'] = 'artifacts';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Предметы';
   $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Calculator */
+  $handler = $view->new_display('page', 'Calculator', 'page_1');
+  $handler->display->display_options['path'] = 'calculator';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Калькулятор';
+  $handler->display->display_options['menu']['weight'] = '1';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;

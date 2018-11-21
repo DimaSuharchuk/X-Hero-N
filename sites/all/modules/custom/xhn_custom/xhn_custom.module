@@ -18,6 +18,13 @@ function xhn_custom_menu() {
     'access arguments' => ['access content'],
     'delivery callback' => 'xhn_custom_ajax_callback',
   ];
+  $items['node/calculate/ajax/%'] = [
+    'page callback' => 'xhn_custom_item_calculate_ajax',
+    'page arguments' => [3],
+    'type' => MENU_CALLBACK,
+    'access arguments' => ['access content'],
+    'delivery callback' => 'xhn_custom_ajax_callback',
+  ];
 
   return $items;
 }
@@ -37,6 +44,13 @@ function xhn_custom_theme($existing, $type, $theme, $path) {
       ],
       'path' => $templates,
       'template' => 'artifact-info',
+    ],
+    'calculator' => [
+      'variables' => [
+        'node_ids' => NULL,
+      ],
+      'path' => $templates,
+      'template' => 'calculator',
     ],
   ];
 }
@@ -67,6 +81,14 @@ function xhn_custom_block_info() {
     'visibility' => BLOCK_VISIBILITY_LISTED,
     'pages' => 'artifacts',
   ];
+  $blocks['block_calculator'] = [
+    'info' => t('Calculator'),
+    'cache' => DRUPAL_NO_CACHE,
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'calculator',
+  ];
 
   return $blocks;
 }
@@ -82,6 +104,16 @@ function xhn_custom_block_view($delta = '') {
   switch ($delta) {
     case 'block_artifact_info':
       $block['content'] = ' ';
+      break;
+
+    case 'block_calculator':
+      try {
+        // Render empty pictures before first calculator using.
+        $block['content'] = theme('calculator');
+      } catch (Exception $e) {
+        // Else show empty block with block wrapper html.
+        $block['content'] = ' ';
+      }
       break;
   }
 
@@ -125,6 +157,25 @@ function xhn_custom_item_get_ajax($nid) {
     'requires' => $requires,
     'used_for' => $used_for,
   ]);
+}
+
+/**
+ * Prepare node IDs and send to theme "Calculator".
+ *
+ * @param $node_ids
+ *  Node IDs for set to calculator block.
+ *
+ * @return string
+ *  HTML after theme rendering.
+ * @throws \Exception
+ */
+function xhn_custom_item_calculate_ajax($node_ids) {
+  // Get array of node IDs in calculator block.
+  $node_ids = explode('-', $node_ids);
+  // We need not more than 6 elements.
+  array_splice($node_ids, 6);
+
+  return theme('calculator', ['node_ids' => $node_ids]);
 }
 
 /**

@@ -63,7 +63,7 @@
       })
       // After block loaded creates lines between images in block.
           .ajaxComplete(function (event, xhr, settings) {
-            if (window.location.pathname === '/artifacts') {
+            if (window.location.pathname === '/' || window.location.pathname === '/artifacts') {
               const $block = $('#block-artifact-info-content');
               const targetArticle = $block.find('.target-node article');
               const topArticles = $block.find('.used-for-items article');
@@ -120,6 +120,45 @@
               }
             }
           });
+    }
+  };
+
+  Drupal.behaviors.calculator = {
+    attach: function (context) {
+      // Load block with artifact info using ajax delivery callback.
+      $(context).on('click', '.item-clickable', function () {
+        // Define calculator block.
+        const $block = $('#block-calculator');
+        // Fetch node ID of clicked target Item.
+        const nid = $(this).data('nid');
+
+        // Fetch node IDs from calculator block.
+        var node_ids = [];
+        const itemsInCalculator = $block.find('.item-calculated');
+        itemsInCalculator.each(function () {
+          if ($(this).data('nid') > 0) {
+            node_ids.push($(this).data('nid'));
+          }
+        });
+
+        // If Item already set in block - remove, else add Item to block.
+        const nidIndex = node_ids.indexOf(nid);
+        if (nidIndex !== -1) {
+          node_ids.splice(nidIndex, 1);
+        }
+        else {
+          node_ids.push(nid);
+        }
+        // Prepare IDs for ajax call.
+        node_ids = node_ids.join('-');
+        // For prevent loading defunct routing without last argument.
+        if (!node_ids.length) {
+          node_ids = 0;
+        }
+
+        // Call ajax php function. Load block.
+        $block.load('/node/calculate/ajax/' + node_ids);
+      });
     }
   };
 })(jQuery);

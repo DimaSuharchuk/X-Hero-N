@@ -52,7 +52,10 @@
     margin-top: 50px;
 
     textarea {
-      color: #333;
+      background: #333;
+    }
+    .grippie {
+      display: none;
     }
 
     .comment {
