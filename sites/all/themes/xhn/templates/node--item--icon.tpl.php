@@ -6,8 +6,7 @@ if ($is_on_node_view_full) {
 }
 ?>
 
-<article id="node-<?php print $node->nid; ?>"
-         class="<?php print $classes; ?> item-clickable"
+<article class="<?php print $classes; ?> item-clickable"
          data-nid="<?php print $node->nid; ?>" <?php print $attributes; ?>>
 
   <?php
