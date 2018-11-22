@@ -59,17 +59,20 @@ function batch_items_export_batch($artifact, &$context) {
   $item_info['icon_name'] = $artifact->field_icon[LANGUAGE_NONE][0]['filename'];
   $icon_uri = file_get_contents($artifact->field_icon[LANGUAGE_NONE][0]['uri']);
   $item_info['icon_base64'] = 'data:image/png;base64,' . base64_encode($icon_uri);
+
+  $artifact_wrapper = entity_metadata_wrapper('node', $artifact);
+
   // Taxonomy shop.
   if (!empty($artifact->field_shop)) {
-    $item_info['shop_ids'] = [];
-    foreach ($artifact->field_shop[LANGUAGE_NONE] as $item) {
-      $item_info['shop_ids'][] = $item['tid'];
+    $item_info['shop_names'] = [];
+    $field_shop = $artifact_wrapper->field_shop->value();
+    foreach ($field_shop as $item) {
+      $item_info['shop_names'][] = $item->name;
     }
   }
   // Requires.
   if (!empty($artifact->field_requires)) {
     $item_info['field_requires'] = [];
-    $artifact_wrapper = entity_metadata_wrapper('item', $artifact);
     $field_requires = $artifact_wrapper->field_requires->value();
     foreach ($field_requires as $require_item) {
       $item_info['field_requires'][] = $require_item->title;

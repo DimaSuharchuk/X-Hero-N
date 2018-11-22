@@ -110,8 +110,12 @@ function batch_items_import_batch($artifact, &$context) {
     ]);
   }
   // Shop.
-  if (isset($artifact->shop_ids)) {
-    $item_wrapper->field_shop->set($artifact->shop_ids);
+  if (isset($artifact->shop_names)) {
+    $shop_ids = [];
+    foreach ($artifact->shop_names as $shop_name) {
+      $shop_ids[] = key(taxonomy_get_term_by_name($shop_name, 'shop'));
+    }
+    $item_wrapper->field_shop->set($shop_ids);
   }
   // Requires.
   if (isset($artifact->field_requires)) {

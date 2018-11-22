@@ -7,10 +7,13 @@ package = Custom
 dependencies[] = admin_menu
 dependencies[] = adminimal_admin_menu
 dependencies[] = ajax_comments
+dependencies[] = ckeditor
 dependencies[] = comment
 dependencies[] = features
 dependencies[] = jquery_update
 dependencies[] = module_filter
+dependencies[] = pathauto
+dependencies[] = transliteration
 dependencies[] = views
 dependencies[] = views_ui
 

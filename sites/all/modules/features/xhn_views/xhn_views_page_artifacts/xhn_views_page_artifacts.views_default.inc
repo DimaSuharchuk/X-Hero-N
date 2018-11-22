@@ -90,6 +90,8 @@ function xhn_views_page_artifacts_views_default_views() {
 
   /* Display: Artifacts */
   $handler = $view->new_display('page', 'Artifacts', 'page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Предметы';
   $handler->display->display_options['display_description'] = 'Homepage';
   $handler->display->display_options['path'] = 'artifacts';
   $handler->display->display_options['menu']['type'] = 'normal';
