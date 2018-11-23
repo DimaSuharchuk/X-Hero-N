@@ -76,6 +76,7 @@ function xhn_custom_block_info() {
   $blocks['block_artifact_info'] = [
     'info' => t('Artifact info'),
     'cache' => DRUPAL_NO_CACHE,
+    'weight' => -1,
     'status' => 1,
     'region' => 'content',
     'visibility' => BLOCK_VISIBILITY_LISTED,
@@ -84,6 +85,7 @@ function xhn_custom_block_info() {
   $blocks['block_calculator'] = [
     'info' => t('Calculator'),
     'cache' => DRUPAL_NO_CACHE,
+    'weight' => -1,
     'status' => 1,
     'region' => 'content',
     'visibility' => BLOCK_VISIBILITY_LISTED,

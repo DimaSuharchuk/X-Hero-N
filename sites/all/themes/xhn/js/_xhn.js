@@ -60,6 +60,8 @@
 
         // Load block.
         $('#block-artifact-info-content').load('/node/get/ajax/' + nid);
+        // User friendly scroll to top.
+        $('html, body').animate({scrollTop: 0}, 'slow');
       })
       // After block loaded creates lines between images in block.
           .ajaxComplete(function (event, xhr, settings) {
