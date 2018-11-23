@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * Define path to theme images directory.
+ */
+define('XHN_IMAGES_DIR', drupal_get_path('theme', 'xhn') . '/images/');
+
+/**
  * Implements template_preprocess_node.
  *
  * {@inheritdoc}
@@ -17,9 +22,18 @@ function xhn_preprocess_node(&$variables) {
  * Implements template_preprocess_field.
  *
  * {@inheritdoc}
+ * @throws \Exception
  */
 function xhn_preprocess_field(&$variables) {
   switch ($variables['element']['#field_name']) {
+    case 'field_gold_cost':
+      $variables['label'] = theme('image', ['path' => XHN_IMAGES_DIR . 'gold.png']);
+      break;
+
+    case 'field_tree_cost':
+      $variables['label'] = theme('image', ['path' => XHN_IMAGES_DIR . 'tree.png']);
+      break;
+
     case 'field_shop':
       $shops = [];
       foreach ($variables['items'] as $item) {
@@ -102,9 +116,6 @@ function xhn_preprocess_artifact_info(&$vars) {
  * @throws \Exception
  */
 function xhn_preprocess_calculator(&$vars) {
-  // Path to images directory in theme.
-  $images_path = drupal_get_path('theme', 'xhn') . '/images';
-
   $items = [];
 
   // Load icons for chosen nodes for calculator.
@@ -125,7 +136,7 @@ function xhn_preprocess_calculator(&$vars) {
     }
     // Else set "empty" images.
     $items[] = [
-      '#markup' => theme('image', ['path' => $images_path . '/empty.jpg']),
+      '#markup' => theme('image', ['path' => XHN_IMAGES_DIR . 'empty.jpg']),
     ];
   }
 
