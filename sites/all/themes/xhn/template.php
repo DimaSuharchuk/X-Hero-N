@@ -142,4 +142,37 @@ function xhn_preprocess_calculator(&$vars) {
 
   // Save themed calculator's images to variable.
   $vars['items'] = $items;
+
+  // Preprocess calculated "fields".
+  if ($vars['calculated_fields']) {
+    foreach ($vars['calculated_fields'] as $field_name => $item) {
+      if ($item['value'] > 0 || $item['value'] != '') {
+        // Change labels. Set images instead of text.
+        switch ($field_name) {
+          case 'field_gold_cost':
+            $item['label'] = theme('image', ['path' => XHN_IMAGES_DIR . 'gold.png']);
+            break;
+
+          case 'field_tree_cost':
+            $item['label'] = theme('image', ['path' => XHN_IMAGES_DIR . 'tree.png']);
+            break;
+        }
+        // Create items with label and value for render in template.
+        $vars['calculated_fields'][$field_name] = [
+          '#type' => 'item',
+          '#title' => $item['label'],
+          // Use list for text fields, it does not affect on numeric fields.
+          '#markup' => '<ul>' . $item['value'] . '</ul>',
+        ];
+      }
+      else {
+        // If value not greater than 0 - remove unnecessary display of field.
+        unset($vars['calculated_fields'][$field_name]);
+      }
+    }
+  }
+  else {
+    // Prevent notice.
+    $vars['calculated_fields'] = [];
+  }
 }

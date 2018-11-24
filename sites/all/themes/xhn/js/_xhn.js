@@ -60,12 +60,13 @@
 
         // Load block.
         $('#block-artifact-info-content').load('/node/get/ajax/' + nid);
-        // User friendly scroll to top.
-        $('html, body').animate({scrollTop: 0}, 'slow');
       })
       // After block loaded creates lines between images in block.
           .ajaxComplete(function (event, xhr, settings) {
             if (window.location.pathname === '/' || window.location.pathname === '/artifacts') {
+              // User friendly scroll to top.
+              $('html, body').animate({scrollTop: 0}, 'slow');
+
               const $block = $('#block-artifact-info-content');
               const targetArticle = $block.find('.target-node article');
               const topArticles = $block.find('.used-for-items article');

@@ -48,6 +48,7 @@ function xhn_custom_theme($existing, $type, $theme, $path) {
     'calculator' => [
       'variables' => [
         'node_ids' => NULL,
+        'calculated_fields' => NULL,
       ],
       'path' => $templates,
       'template' => 'calculator',
@@ -177,7 +178,48 @@ function xhn_custom_item_calculate_ajax($node_ids) {
   // We need not more than 6 elements.
   array_splice($node_ids, 6);
 
-  return theme('calculator', ['node_ids' => $node_ids]);
+  // Get node items numeric fields.
+  $fields = _get_node_item_integer_fields_name();
+  // Get node items text fields.
+  $text_fields = [
+    'field_active' => 'Активные способности',
+    'field_passive' => 'Пассивные способности',
+  ];
+
+  // Calculate chosen Items fields values.
+  $calculated_fields = [];
+  foreach ($node_ids as $node_id) {
+    // Numeric fields.
+    foreach ($fields as $field_name => $label) {
+      // First use: save field label and set sum of field value to 0.
+      if (!isset($calculated_fields[$field_name])) {
+        $calculated_fields[$field_name] = [
+          'label' => $label,
+          'value' => 0,
+        ];
+      }
+      // Sum value of every field for every node.
+      $calculated_fields[$field_name]['value'] += _recursively_get_artifact_resource_cost($node_id, $field_name);
+    }
+    // Text fields.
+    foreach ($text_fields as $field_name => $label) {
+      if (!isset($calculated_fields[$field_name])) {
+        $calculated_fields[$field_name] = [
+          'label' => $label,
+          'value' => '',
+        ];
+      }
+      $node_wrapper = entity_metadata_wrapper('node', $node_id);
+      if ($text = $node_wrapper->{$field_name}->value()) {
+        $calculated_fields[$field_name]['value'] .= '<li>' . strip_tags($text['value']) . '</li>';
+      }
+    }
+  }
+
+  return theme('calculator', [
+    'node_ids' => $node_ids,
+    'calculated_fields' => $calculated_fields,
+  ]);
 }
 
 /**
@@ -190,4 +232,84 @@ function xhn_custom_ajax_callback($page_callback_result) {
 
   // Perform end-of-request tasks.
   drupal_page_footer();
+}
+
+/**
+ * Recursively calculate gold and tree field's values. For another fields only
+ * returns value.
+ *
+ * @param $nid
+ *  Node ID.
+ * @param string $field_name
+ *  Machine name of node field.
+ * @param int $resource_sum
+ *  Used only for self-recursive.
+ *
+ * @return int
+ *  Sum of field values or field's value.
+ */
+function _recursively_get_artifact_resource_cost($nid, $field_name = '', $resource_sum = 0) {
+  $wrapper = entity_metadata_wrapper('node', $nid);
+
+  // Get field's value. This value will return from function if field sum is not recursive.
+  if (!empty($wrapper->{$field_name})) {
+    $resource_sum = $wrapper->{$field_name}->value();
+  }
+
+  // For this fields sum calculates recursively includes all required nodes.
+  if (in_array($field_name, ['field_gold_cost', 'field_tree_cost'])) {
+    if (!empty($wrapper->field_requires)) {
+      $requires = $wrapper->field_requires->value();
+      foreach ($requires as $require) {
+        $resource_sum += _recursively_get_artifact_resource_cost($require, $field_name, $resource_sum);
+      }
+    }
+  }
+
+  return (int) $resource_sum;
+}
+
+/**
+ * Get numeric fields with labels of content type "Item".
+ *
+ * @param bool $all
+ *  If TRUE returns all numeric fields of content type "Item", else keep only
+ *   useful fields.
+ *
+ * @return array
+ *  Array of numeric fields. As follows:
+ *  [
+ *    $machine_name => $label,
+ *    ...
+ *  ]
+ */
+function _get_node_item_integer_fields_name($all = FALSE) {
+  // Get node fields name.
+  $fields = field_info_instances('node', 'item');
+
+  // Remove useless numeric fields.
+  if (!$all) {
+    unset($fields['field_weight_in_shop']);
+  }
+
+  // Sort field by view mode "default".
+  usort($fields, function ($a, $b) {
+    $w1 = $a['display']['default']['weight'];
+    $w2 = $b['display']['default']['weight'];
+
+    if ($w1 == $w2) {
+      return 0;
+    }
+    return ($w1 < $w2) ? -1 : 1;
+  });
+
+  // Build array of numeric fields with fields label.
+  $numeric_fields = [];
+  foreach ($fields as $field) {
+    if (isset($field['widget']['type']) && $field['widget']['type'] == 'number') {
+      $numeric_fields[$field['field_name']] = $field['label'];
+    }
+  }
+
+  return $numeric_fields;
 }

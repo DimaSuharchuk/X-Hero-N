@@ -6,3 +6,9 @@
       </div>
   <?php endforeach; ?>
 </div>
+
+<div class="calculated-fields-wrapper">
+  <?php foreach ($calculated_fields as $field) {
+    print '<div class="calculated-field-output">' . render($field) . '</div>';
+  } ?>
+</div>
