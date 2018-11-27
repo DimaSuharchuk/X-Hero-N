@@ -263,7 +263,9 @@ function _recursively_get_artifact_resource_cost($nid, $field_name = '', $resour
     if (!empty($wrapper->field_requires)) {
       $requires = $wrapper->field_requires->value();
       foreach ($requires as $require) {
-        $resource_sum += _recursively_get_artifact_resource_cost($require, $field_name, $resource_sum);
+        if (empty($require->field_boss) || !$require->field_boss[LANGUAGE_NONE][0]['value']) {
+          $resource_sum += _recursively_get_artifact_resource_cost($require, $field_name, $resource_sum);
+        }
       }
     }
   }
