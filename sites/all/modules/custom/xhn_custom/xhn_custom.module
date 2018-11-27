@@ -182,19 +182,26 @@ function xhn_custom_item_calculate_ajax($node_ids) {
   $fields = _get_node_item_integer_fields_name();
   // Get node items text fields.
   $text_fields = [
-    'field_active' => 'Активные способности',
-    'field_passive' => 'Пассивные способности',
+    'field_active' => [
+      'label' => 'Активные способности',
+      'suffix' => '',
+    ],
+    'field_passive' => [
+      'label' => 'Пассивные способности',
+      'suffix' => '',
+    ],
   ];
 
   // Calculate chosen Items fields values.
   $calculated_fields = [];
   foreach ($node_ids as $node_id) {
     // Numeric fields.
-    foreach ($fields as $field_name => $label) {
+    foreach ($fields as $field_name => $item) {
       // First use: save field label and set sum of field value to 0.
       if (!isset($calculated_fields[$field_name])) {
         $calculated_fields[$field_name] = [
-          'label' => $label,
+          'label' => $item['label'],
+          'suffix' => $item['suffix'],
           'value' => 0,
         ];
       }
@@ -202,10 +209,11 @@ function xhn_custom_item_calculate_ajax($node_ids) {
       $calculated_fields[$field_name]['value'] += _recursively_get_artifact_resource_cost($node_id, $field_name);
     }
     // Text fields.
-    foreach ($text_fields as $field_name => $label) {
+    foreach ($text_fields as $field_name => $item) {
       if (!isset($calculated_fields[$field_name])) {
         $calculated_fields[$field_name] = [
-          'label' => $label,
+          'label' => $item['label'],
+          'suffix' => $item['suffix'],
           'value' => '',
         ];
       }
@@ -311,7 +319,10 @@ function _get_node_item_integer_fields_name($all = FALSE) {
   $numeric_fields = [];
   foreach ($fields as $field) {
     if (isset($field['widget']['type']) && $field['widget']['type'] == 'number') {
-      $numeric_fields[$field['field_name']] = $field['label'];
+      $numeric_fields[$field['field_name']] = [
+        'label' => $field['label'],
+        'suffix' => $field['settings']['suffix'],
+      ];
     }
   }
 

@@ -162,7 +162,7 @@ function xhn_preprocess_calculator(&$vars) {
           '#type' => 'item',
           '#title' => $item['label'],
           // Use list for text fields, it does not affect on numeric fields.
-          '#markup' => '<ul>' . $item['value'] . '</ul>',
+          '#markup' => '<ul>' . $item['value'] . $item['suffix'] . '</ul>',
         ];
       }
       else {
