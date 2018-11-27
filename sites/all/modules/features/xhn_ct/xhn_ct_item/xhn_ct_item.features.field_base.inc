@@ -197,21 +197,6 @@ function xhn_ct_item_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_dodge'.
-  $field_bases['field_dodge'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_dodge',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'number_integer',
-  );
-
   // Exported field_base: 'field_gold_cost'.
   $field_bases['field_gold_cost'] = array(
     'active' => 1,

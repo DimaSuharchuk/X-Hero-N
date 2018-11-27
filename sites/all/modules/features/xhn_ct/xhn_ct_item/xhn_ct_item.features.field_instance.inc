@@ -131,7 +131,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => 0,
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -183,7 +183,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -235,7 +235,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -382,7 +382,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' %',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -434,7 +434,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -489,58 +489,6 @@ function xhn_ct_item_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 7,
-    ),
-  );
-
-  // Exported field_instance: 'node-item-field_dodge'.
-  $field_instances['node-item-field_dodge'] = array(
-    'bundle' => 'item',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 20,
-      ),
-      'icon' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 18,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_dodge',
-    'label' => 'Уворот',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 24,
     ),
   );
 
@@ -636,7 +584,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -682,13 +630,13 @@ function xhn_ct_item_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_health_regen_percent',
-    'label' => 'Регенерация здоровья, %',
+    'label' => 'Регенерация здоровья',
     'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' %',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -734,13 +682,13 @@ function xhn_ct_item_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_health_regen_units',
-    'label' => 'Регенерация здоровья, ед',
+    'label' => 'Регенерация здоровья',
     'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -852,7 +800,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -904,7 +852,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => ' %',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -956,7 +904,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1002,13 +950,13 @@ function xhn_ct_item_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_mana_regen_percent',
-    'label' => 'Регенерация маны, %',
+    'label' => 'Регенерация маны',
     'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' %',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1054,13 +1002,13 @@ function xhn_ct_item_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_mana_regen_units',
-    'label' => 'Регенерация маны, ед',
+    'label' => 'Регенерация маны',
     'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1112,7 +1060,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1303,7 +1251,7 @@ function xhn_ct_item_field_default_field_instances() {
       'max' => '',
       'min' => 0,
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' ед.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1434,15 +1382,12 @@ function xhn_ct_item_field_default_field_instances() {
   t('Пассивные способности');
   t('Предмет с босса');
   t('Разум');
-  t('Регенерация здоровья, %');
-  t('Регенерация здоровья, ед');
-  t('Регенерация маны, %');
-  t('Регенерация маны, ед');
+  t('Регенерация здоровья');
+  t('Регенерация маны');
   t('Сила');
   t('Скорость атаки');
   t('Скорость перемещения');
   t('Требует');
-  t('Уворот');
 
   return $field_instances;
 }
