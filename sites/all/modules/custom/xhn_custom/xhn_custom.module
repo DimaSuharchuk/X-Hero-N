@@ -106,13 +106,13 @@ function xhn_custom_block_view($delta = '') {
 
   switch ($delta) {
     case 'block_artifact_info':
-      $block['content'] = ' ';
+      $block['content'] = '<h4 class="block-info-preview">Нажимайте на предметы чтобы увидеть с чего они собираются.<br><br>Так же можно кликать на предметы в этом блоке.<br><br>Чтобы перейти на страницу артефакта нажмите на него еще раз в этом блоке.</h4>';
       break;
 
     case 'block_calculator':
       try {
         // Render empty pictures before first calculator using.
-        $block['content'] = theme('calculator');
+        $block['content'] = theme('calculator') . '<h4 class="block-info-preview">Здесь можно посмотреть что дает Ваш билд или отдельный артефакт.<br><br>Стоимость каждого отдельного артефакта включает стоимость артефактов необходимых для его сборки.</h4>';
       } catch (Exception $e) {
         // Else show empty block with block wrapper html.
         $block['content'] = ' ';
