@@ -14,6 +14,13 @@
   }
 }
 
+// Block with information before user actions.
+.block-info-preview {
+  text-align: justify;
+  line-height: 110%;
+  opacity: 0.4;
+}
+
 .block-xhn-custom-block-artifact-info {
   .inline-items {
     display: flex;
