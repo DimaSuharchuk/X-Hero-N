@@ -12,6 +12,10 @@
 }
 
 .node-type-item {
+  .field-name-field-icon {
+    margin-bottom: 30px;
+  }
+
   .field-type-number-integer {
     display: flex;
     align-items: center;
@@ -24,17 +28,6 @@
     padding: 10px;
     font-weight: bold;
     margin-bottom: 20px;
-  }
-
-  .field-name-field-icon {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 50px;
-    margin-bottom: 50px;
-  }
-
-  .field-name-field-description {
-    display: inline-block;
   }
 
   .field-name-field-requires {
